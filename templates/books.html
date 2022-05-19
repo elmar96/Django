@@ -9,9 +9,8 @@
 <ul>
     {% for book in books %}
     <li>
-        <h2>{{ book.title }}</h2>
-        <p>{{ book.description }}</p>
-        <p>{{ book.image }}</p>
+        <img src="{{ book.image.url }}" alt="">
+        <h2><a href="/books/{{ book.id }}/">{{ book.title }}</a></h2>
     </li>
     {% endfor %}
 </ul>
