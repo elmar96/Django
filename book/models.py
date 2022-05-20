@@ -11,7 +11,8 @@ class Book(models.Model):
         ("Literary Fiction", "Literary Fiction"),
         ("Humor", "Humor"),
         ("Motivational", "Motivational"),
-        ("Historical Fiction", "Historical Fiction")
+        ("Historical Fiction", "Historical Fiction"),
+        ("Masnavyi", "Masnavyi")
 
 
     )

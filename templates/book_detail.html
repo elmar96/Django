@@ -1,11 +1,26 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Detail</title>
+    <link rel="stylesheet" type = "text/css" href="{% static '/css/bootstrap.css/' %}">
 </head>
 <body>
-<img src="{{ book.image.url }}" alt="">
+<style>
+    .books__button {
+        margin-top: 20px;
+    }
+    .detail__image{
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+</style>
+<div>
+    <a class="btn btn-primary books__button" href="/books/" role="button">Back</a>
+    <a class="btn btn-primary books__button" href="/add-books/" role="button">Create New</a>
+</div>
+<img src="{{ book.image.url }}"class="detail__image" alt="">
 <h2>{{ book.title }}</h2>
 <p>{{ book.description }}</p>
 <p>{{ book.author }}</p>
@@ -15,6 +30,7 @@
 <p>{{ book.created_date }}</p>
 <p>{{ book.updated_date }}</p>
 
-<a href="/books/">Back</a>
+{#<a href="/books/"class="btn-primary">Back</a>#}
+
 </body>
 </html>
