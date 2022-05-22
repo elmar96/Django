@@ -12,23 +12,60 @@
         margin-top: 20px;
     }
     .detail__image{
-        margin-top: 10px;
-        margin-left: 50px;
+        {#object-fit: fill;#}
+        height: 440px;
+        {#width: 270px;#}
+        object-fit:fill;
+
     }
+
+    .book_card_body {
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    }
+
+    body{
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+     }
+
 </style>
 <div>
     <a class="btn btn-primary books__button" href="/books/" role="button">Back</a>
     <a class="btn btn-primary books__button" href="/add-books/" role="button">Create New</a>
+    <a class="btn btn-primary books__button" href="/books/{{ book.id }}/update/" role="button">Update</a>
+    <a class="btn btn-primary books__button" href="/books/{{ book.id }}/delete/" role="button">Delete</a>
 </div>
-<img src="{{ book.image.url }}"class="detail__image" alt="">
-<h2>{{ book.title }}</h2>
-<p>{{ book.description }}</p>
-<p>{{ book.author }}</p>
-<p>{{ book.genre }}</p>
-<p>{{ book.year_of_issue }}</p>
-<p>{{ book.age_control }}</p>
-<p>{{ book.created_date }}</p>
-<p>{{ book.updated_date }}</p>
+<div class="container">
+    <div class="card">
+          <img src="{{ book.image.url }}" class="card-img-top detail__image" alt="...">
+          <div class="card-body book_card_body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.description }}</p>
+            <p class="card-text">{{ book.author }}</p>
+            <p class="card-text">{{ book.genre }}</p>
+            <p class="card-text">{{ book.year_of_issue }}</p>
+            <p class="card-text">{{ book.age_control }}</p>
+            <p class="card-text">{{ book.created_date }}</p>
+            <p class="card-text">{{ book.updated_date }}</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{#<img src="{{ book.image.url }}"class="detail__image" alt="">#}
+{#<h2>{{ book.title }}</h2>#}
+{#<p>{{ book.description }}</p>#}
+{#<p>{{ book.author }}</p>#}
+{#<p>{{ book.genre }}</p>#}
+{#<p>{{ book.year_of_issue }}</p>#}
+{#<p>{{ book.age_control }}</p>#}
+{#<p>{{ book.created_date }}</p>#}
+{#<p>{{ book.updated_date }}</p>#}
 
 {#<a href="/books/"class="btn-primary">Back</a>#}
 
