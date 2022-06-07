@@ -74,6 +74,7 @@ class BookListView(generic.ListView):
 #     queryset = models.Book.objects.filter(genre__in="Masnavyi").order_by("-id")
 #     return render(request, "books.html", {"books": queryset})
 
+
 class BookDetailView(generic.DetailView):
     template_name = "book_detail.html"
 
@@ -85,6 +86,7 @@ class BookDetailView(generic.DetailView):
 # def get_book_detail(request, id):
 #     object = get_object_or_404(models.Book, id=id)
 #     return render(request, "book_detail.html", {"book": object})
+
 
 class BookCreateView(generic.CreateView):
     template_name = "add_books.html"
@@ -139,7 +141,8 @@ class BookDeleteView(generic.DeleteView):
 
     def get_object(self, **kwargs):
         books_id = self.kwargs.get("id")
-        return get_object_or_404(models.Book,id=books_id)
+        return get_object_or_404(models.Book, id=books_id)
+
 
 # def book_delete(request, id):
 #     book_object = get_object_or_404(models.Book, id=id)

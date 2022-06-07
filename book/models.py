@@ -12,8 +12,7 @@ class Book(models.Model):
         ("Humor", "Humor"),
         ("Motivational", "Motivational"),
         ("Historical Fiction", "Historical Fiction"),
-        ("Masnavyi", "Masnavyi")
-
+        ("Masnavyi", "Masnavyi"),
     )
 
     title = models.CharField(max_length=100)
@@ -29,17 +28,21 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
 class BookUser(models.Model):
     username = models.CharField(max_length=200)
+
     def __str__(self):
         return self.username
 
+
 class BookComment(models.Model):
-    books = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="books_comment")
-    user = models.ForeignKey(BookUser,
-                             on_delete=models.CASCADE,
-                             related_name="books_comment",
-                             null=True)
+    books = models.ForeignKey(
+        Book, on_delete=models.CASCADE, related_name="books_comment"
+    )
+    user = models.ForeignKey(
+        BookUser, on_delete=models.CASCADE, related_name="books_comment", null=True
+    )
     text = models.TextField()
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now_add=True)

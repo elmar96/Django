@@ -29,8 +29,7 @@ def get_data(html):
             {
                 "link": item.find("a").get("href"),
                 "title": item.find(class_="b_car_list__name").get_text(strip=True),
-                # "image": item.find("a").find("span").get("class"),
-
+                "image": item.find("a").find("span").get("style"),
             }
         )
     return cars
@@ -59,10 +58,11 @@ def get_data_agro(html):
             {
                 "link": item.find("a").get("href"),
                 "title": item.find("a").find("img").get("alt"),
-                "image": item.find("a").find("img").get("src")
+                "image": item.find("a").find("img").get("src"),
             }
         )
     return agro
+
 
 @csrf_exempt
 def parser_func_agro():
@@ -75,6 +75,7 @@ def parser_func_agro():
     else:
         raise Exception("Error is parser function agro")
 
+
 html = get_html(HOST2)
 get_data_agro(html.text)
 
@@ -82,7 +83,9 @@ get_data_agro(html.text)
 @csrf_exempt
 def get_data_eda(html):
     soup = BeautifulSoup(html, "html.parser")
-    items = soup.find_all("div", class_="col-xs-12 col-sm-4 no-margin catalog-item-holder")
+    items = soup.find_all(
+        "div", class_="col-xs-12 col-sm-4 no-margin catalog-item-holder"
+    )
     eda = []
 
     for item in items:
@@ -90,10 +93,11 @@ def get_data_eda(html):
             {
                 "link": item.find("a").get("href"),
                 "title": item.find(class_="title").get_text(strip=True),
-                "image": item.find("a").find("img").get("src"),
+                # "image": item.find("a").find("img").get("src"),
             }
         )
     return eda
+
 
 @csrf_exempt
 def parser_func_eda():

@@ -16,15 +16,15 @@ class ParserForm(forms.Form):
         ]
 
     def parse_data(self):
-        if self.data['media_type'] == "Cars":
+        if self.data["media_type"] == "Cars":
             cars_parser = parser.parser_func()
             for data in cars_parser:
                 models.Cars.objects.create(**data)
-        elif self.data['media_type'] == "Agro":
+        elif self.data["media_type"] == "Agro":
             agro_parser = parser.parser_func_agro()
             for data in agro_parser:
                 models.Agro.objects.create(**data)
-        elif self.data['media_type'] == "Eda":
+        elif self.data["media_type"] == "Eda":
             eda_parser = parser.parser_func_eda()
             for data in eda_parser:
                 models.Eda.objects.create(**data)

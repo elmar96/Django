@@ -4,30 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail</title>
-    <link rel="stylesheet" type = "text/css" href="{% static '/css/bootstrap.css/' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css/' %}">
 </head>
 <body>
 <style>
     .books__button {
         margin-top: 20px;
     }
-    .detail__image{
-        {#object-fit: fill;#}
-        height: 440px;
-        {#width: 270px;#}
-        object-fit:fill;
+
+    .detail__image {
+    {#object-fit: fill;#} height: 440px;
+    {#width: 270px;#} object-fit: fill;
 
     }
 
     .book_card_body {
-    background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+        background-color: #D9AFD9;
+        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     }
 
-    body{
-    background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-     }
+    body {
+        background-color: #D9AFD9;
+        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    }
 
 </style>
 <div>
@@ -38,8 +37,8 @@
 </div>
 <div class="container">
     <div class="card">
-          <img src="{{ object.image.url }}" class="card-img-top detail__image" alt="...">
-          <div class="card-body book_card_body">
+        <img src="{{ object.image.url }}" class="card-img-top detail__image" alt="...">
+        <div class="card-body book_card_body">
             <h5 class="card-title">{{ object.title }}</h5>
             <p class="card-text">{{ object.description }}</p>
             <p class="card-text">{{ object.author }}</p>
@@ -48,27 +47,22 @@
             <p class="card-text">{{ object.age_control }}</p>
             <p class="card-text">{{ object.created_date }}</p>
             <p class="card-text">{{ object.updated_date }}</p>
-              <div class="card-body">
-                  <h2>Comments: </h2>
-                  <ul>
-                      {% for comment in object.books_comment.all %}
-                      <li>
+            <div class="card-body">
+                <h2>Comments: </h2>
+                <ul>
+                    {% for comment in object.books_comment.all %}
+                        <li>
                             <p>Имя: {{ comment.user.username }}</p>
-                                <p> {{ comment.text }}</p>
-                    </li>
-                      {% endfor %}
-                  </ul>
+                            <p> {{ comment.text }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
 
-              </div>
+            </div>
         </div>
 
     </div>
 </div>
-
-
-
-
-
 
 
 {#<img src="{{ book.image.url }}"class="detail__image" alt="">#}

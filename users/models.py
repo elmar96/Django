@@ -4,16 +4,12 @@ from django.db.models import Model
 
 
 class CustomUser(User):
-    GENDER_TYPE = (
-        ("Male", "Male"),
-        ("FeMale", "FeMale"),
-        ("Other", "Other")
-    )
+    GENDER_TYPE = (("Male", "Male"), ("FeMale", "FeMale"), ("Other", "Other"))
     OCCUPATIONS = (
         ("Student", "Student"),
         ("Worker", "Worker"),
         ("Jobless", "Jobless"),
-        ("Retired", "Retired")
+        ("Retired", "Retired"),
     )
     LIST_OF_CONTINENTS = (
         ("Asia", "Asia"),
@@ -29,4 +25,3 @@ class CustomUser(User):
     code_word = models.CharField(max_length=200)
     occupations = models.CharField(choices=OCCUPATIONS, max_length=100)
     continents = models.CharField(choices=LIST_OF_CONTINENTS, max_length=100)
-

@@ -1,21 +1,21 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    AuthenticationForm,
+    UsernameField,
+)
 from django.forms import EmailField
 
 from .models import CustomUser
 
 
 class RegistrationForm(UserCreationForm):
-    GENDER_TYPE = (
-        ("Male", "Male"),
-        ("FeMale", "FeMale"),
-        ("Other", "Other")
-    )
+    GENDER_TYPE = (("Male", "Male"), ("FeMale", "FeMale"), ("Other", "Other"))
     OCCUPATIONS = (
         ("Student", "Student"),
         ("Worker", "Worker"),
         ("Jobless", "Jobless"),
-        ("Retired", "Retired")
+        ("Retired", "Retired"),
     )
     LIST_OF_CONTINENTS = (
         ("Asia", "Asia"),
@@ -46,12 +46,12 @@ class RegistrationForm(UserCreationForm):
             "gender",
             "occupation",
             "continents",
-            "code_word"
+            "code_word",
         ]
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
+        user.email = self.cleaned_data["email"]
         if commit:
             user.save()
         return user
@@ -66,7 +66,7 @@ class LoginForm(AuthenticationForm):
             attrs={
                 "class": "form-control",
                 "placeholder": "please type email",
-                "id": "email"
+                "id": "email",
             }
         )
     )
@@ -75,8 +75,7 @@ class LoginForm(AuthenticationForm):
             attrs={
                 "class": "form-control",
                 "placeholder": "please type password",
-                "id": "password"
+                "id": "password",
             }
         )
-
     )
